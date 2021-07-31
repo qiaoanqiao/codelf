@@ -44,7 +44,7 @@ export default function NoticeContainer() {
         href='https://github.com/unbug/snts'>
         <Icon name='heartbeat' /> SAY NO TO SUICIDE PUBLIC LICENSE
       </a>
-      <a className='animated fadeIn' target='_blank' rel='noopener noreferrer' href='//mihtool.com/'>
+      <a className='animated fadeIn' target='_blank' rel='noopener noreferrer' href='https://mihtool.com/'>
         <Icon name='code' /> [MIHTool] iOS 上调试和优化页面的工具
       </a>
       <a className='animated fadeIn' target='_blank' rel='noopener noreferrer' href='https://www.wasmrocks.com/'>

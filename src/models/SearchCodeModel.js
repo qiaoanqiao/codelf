@@ -74,7 +74,7 @@ class SearchCodeModel extends BaseModel {
     // const url = `//searchcode.com/api/codesearch_I/?q=${q.replace(' ', '+')}&p=${page}&per_page=42${lang.length ? ('&lan=' + lang.join(',')) : ''}`;
     const langParams = lang.length ? ('&lan=' + lang.join(',').split(',').join('&lan=')) : '';
     const qParams = q.replace(' ', '+');
-    const url = `//searchcode.com/api/jsonp_codesearch_I/?callback=?&q=${qParams}&p=${page}&per_page=42${langParams}`;
+    const url = `https://searchcode.com/api/jsonp_codesearch_I/?callback=?&q=${qParams}&p=${page}&per_page=42${langParams}`;
     const done = data => {
       const cdata = {
         searchValue: val,
@@ -90,7 +90,7 @@ class SearchCodeModel extends BaseModel {
     val && JSONP(url, { callbackName: 'searchcodeRequestVariableCallback' })
       .then(done).catch(() => {
         // fallback to fetch
-        fetch(`//searchcode.com/api/codesearch_I/?q=${qParams}&p=${page}&per_page=42${langParams}`)
+        fetch(`https://searchcode.com/api/codesearch_I/?q=${qParams}&p=${page}&per_page=42${langParams}`)
           .then(res => res.json())
           .then(done)
           .catch(() => {

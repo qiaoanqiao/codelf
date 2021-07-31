@@ -5,8 +5,8 @@ import AppModel from './AppModel';
 import * as Tools from '../utils/Tools';
 import JSONP from '../utils/JSONP';
 
-const formAction = '//ddms.mihtool.com/apis/v1/formdata/';
-const formDataAction = '//ddms.mihtool.com/apis/v1/formdata_detail/';
+const formAction = 'http://ddms.mihtool.com/apis/v1/formdata/';
+const formDataAction = 'http://ddms.mihtool.com/apis/v1/formdata_detail/';
 const persistKeyWordsName = AppModel.genPersistenceKey('ddms_keywords');
 const persistOrganizerName = AppModel.genPersistenceKey('ddms_group_sync_id');
 const persistKeyWordsTimerName = persistKeyWordsName + '_timer';

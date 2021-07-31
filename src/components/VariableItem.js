@@ -8,7 +8,8 @@ export default function VariableItem(props) {
   let clipboard = null;
 
   function handlePopOnMount() {
-    clipboard = new ClipboardJS(`#${clipboardId}`);
+    // clipboard = new ClipboardJS(`#${clipboardId}`);
+    console.log(1);
   }
 
   function handlePopUnmount() {
@@ -28,7 +29,7 @@ export default function VariableItem(props) {
       <Button.Group vertical basic style={{ border: 0 }}>
         <Button compact as='a' href={`#${variable.keyword}`}>Search</Button>
         <Button compact as='a' href={variable.repoLink} target='_blank'>Repo</Button>
-        <Button compact data-clipboard-text={variable.keyword} id={clipboardId}>Copy</Button>
+        <Button compact  onClick={()=> window.onCopyUtools(variable.keyword)} id={clipboardId}>Copy</Button>
         <Button compact onClick={() => props.onOpenSourceCode(variable)}>
           [{variable.repoLang}] Codes <Label size='mini' circular color={variable.color}>{variable.repoList.length}</Label>
         </Button>

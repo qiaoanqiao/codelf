@@ -1,9 +1,4 @@
 <section class="container main">
-  <header class="main-title">
-    <header><h1><a href="./"><span>C</span><span>O</span><span>D</span><span>E</span><span>L</span><span>F</span></a></h1></header>
-    <h5>Search over projects from GitHub, Bitbucket, GitLab to find </h5>
-    <h5><span class="label">real-world usage</span> <span class="label">variable names</span></h5>
-  </header>
   <section class="row search-form">
     <div class="col-xs-12">
       <div class="input-group">
@@ -87,7 +82,7 @@
   <div class="btn-group-vertical variable-btns" role="group">
     <button type="button" class="btn btn-secondary"><a href="#{val}">Search</a></button>
     <button type="button" class="btn btn-secondary"><a href="{repo}" target="_blank">Repo</a></button>
-    <button type="button" class="btn btn-secondary variable-btns__copy" data-clipboard-text="{val}">Copy</button>
+    <button type="button" class="btn btn-secondary variable-btns__copy" onclick="javascript:alert({val})">Copy</button>
     <button type="button" class="btn btn-secondary variable-btns__code" data-id="{id}" data-val="{val}">Codes <span class="label label-danger label-pill">{count}</span></button>
   </div>
 </script>

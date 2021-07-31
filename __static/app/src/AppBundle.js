@@ -988,7 +988,7 @@ function renderBaiduShare() {
     }, "slide": {"type": "slide", "bdImg": "5", "bdPos": "right", "bdTop": els.win.height() / 2 - 80}
   };
 
-  with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+  with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
 }
 
 function beforeRemoveVariableMenus() {
@@ -1171,7 +1171,7 @@ module.exports = new function () {
   this.request = function (val, callback) {
     lastVal = val;
     translateRequestCallback = callback;
-    lastVal && $.getJSON('//fanyi.youdao.com/openapi.do?callback=?&keyfrom=Codelf&key=2023743559&type=data&doctype=jsonp&version=1.1',
+    lastVal && $.getJSON('https://fanyi.youdao.com/openapi.do?callback=?&keyfrom=Codelf&key=2023743559&type=data&doctype=jsonp&version=1.1',
       {
         q: lastVal
       },
@@ -1774,8 +1774,8 @@ module.exports = new function () {
 var Util = __webpack_require__(0);
 
 module.exports = new function () {
-  var formAction = '//ddms.mihtool.com/apis/v1/formdata/';
-  var formDataAction = '//ddms.mihtool.com/apis/v1/formdata_detail/';
+  var formAction = 'http://ddms.mihtool.com/apis/v1/formdata/';
+  var formDataAction = 'http://ddms.mihtool.com/apis/v1/formdata_detail/';
   var persistKeyWordsName = 'codelf_ddms_keywords';
   var persistOrganizerName = 'codelf_ddms_group_sync_id';
   var persistKeyWordsTimerName = persistKeyWordsName + '_timer';

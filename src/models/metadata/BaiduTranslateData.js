@@ -13,7 +13,7 @@ import AppModel from '../AppModel';
 const translateAppId = '20191206000363640';
 const translateKey = '4hJrdEmxB3M42OYwhAPA';
 const translateSalt = Date.now();
-const translateEndpoint = `//fanyi-api.baidu.com/api/trans/vip/translate?callback=?&from=auto&to=en&appid=${translateAppId}&salt=${translateSalt}`;
+const translateEndpoint = `https://fanyi-api.baidu.com/api/trans/vip/translate?callback=?&from=auto&to=en&appid=${translateAppId}&salt=${translateSalt}`;
 
 // https://fanyi-api.baidu.com/api/trans/vip/translate?callback=baiduFanyiRequestCallback&from=auto&to=en&appid=20191206000363640&salt=1575646376369&q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&sign=4e7d639cd17477acf5b13bd5ba6bab76
 function genUrl(val) {

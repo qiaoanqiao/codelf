@@ -9,7 +9,7 @@ import AppModel from '../AppModel';
  * 所以，如果你想二次开发，请单独申请自己的有道翻译 API 的 KEY，否则会直接影响 CODELF 的用户。
  * 有道翻译 API 申请参看： http://fanyi.youdao.com/openapi?path=data-mode
  */
-const translateEndpoint = '//fanyi.youdao.com/openapi.do?callback=?&keyfrom=Codelf&key=2023743559&type=data&doctype=jsonp&version=1.1';
+const translateEndpoint = 'https://fanyi.youdao.com/openapi.do?callback=?&keyfrom=Codelf&key=2023743559&type=data&doctype=jsonp&version=1.1';
 
 class YoudaoTranslateData {
   constructor() {

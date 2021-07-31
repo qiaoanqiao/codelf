@@ -8,10 +8,8 @@ import NavBarContainer from './containers/NavBarContainer';
 function App() {
   return (
     <>
-      <NavBarContainer />
       <MainContainer />
       {/* <CopybookContainer /> */}
-      <NoticeContainer />
     </>
   );
 }
