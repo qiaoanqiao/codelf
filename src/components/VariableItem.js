@@ -28,7 +28,7 @@ export default function VariableItem(props) {
       hoverable={true}>
       <Button.Group vertical basic style={{ border: 0 }}>
         <Button compact as='a' href={`#${variable.keyword}`}>Search</Button>
-        <Button compact as='a' href={variable.repoLink} target='_blank'>Repo</Button>
+        <Button compact as='a' onClick={()=> window.onCopyUtools(variable.repoLink)} href={variable.repoLink} target='_blank'>Repo</Button>
         <Button compact  onClick={()=> window.onCopyUtools(variable.keyword)} id={clipboardId}>Copy</Button>
         <Button compact onClick={() => props.onOpenSourceCode(variable)}>
           [{variable.repoLang}] Codes <Label size='mini' circular color={variable.color}>{variable.repoList.length}</Label>

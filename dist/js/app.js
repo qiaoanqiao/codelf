@@ -67417,7 +67417,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_containers_NavBarContainer__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/React.createElement(_containers_MainContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/React.createElement(_containers_NoticeContainer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_containers_MainContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/React.createElement(App, null), document.querySelector('.app'));
@@ -67453,46 +67453,17 @@ function Donate(props) {
     text = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
       className: "lang cn"
     }, "\u7ED9", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "https://github.com/unbug",
+      href: "",
       rel: "noopener noreferrer",
       target: "_blank"
-    }, cnText, "\u7684\u4F5C\u8005"), "\u6253\u8D4F\u4E2A\u7EA2\u5305\u5427");
+    }, cnText, "\u7684\u4F5C\u8005"), "\u8D5E\u8D4F\u4E00\u4E0B\u5427");
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "donate"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hd"
-  }, text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "bd"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "images/wechatpay.jpg",
-    className: "wechatpay",
-    title: "\u5FAE\u4FE1\u4ED8\u6B3E"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "images/zhifubao.png",
-    className: "zhifubao",
-    title: "\u652F\u4ED8\u5B9D\u8F6C\u8D26"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    action: "https://www.paypal.com/cgi-bin/webscr",
-    method: "post",
-    target: "_top"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "hidden",
-    name: "cmd",
-    value: "_s-xclick"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "hidden",
-    name: "hosted_button_id",
-    value: "43H7K8PWR4VV4"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "image",
-    className: "paypal",
-    src: "images/paypal.png",
-    border: "0",
-    name: "submit",
-    title: "Paypal"
-  }))));
+  }, text));
 }
 
 /***/ }),
@@ -67847,14 +67818,7 @@ __webpack_require__.r(__webpack_exports__);
 function SearchError() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search-error"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nothing found, please try  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Label"], {
-    color: "grey",
-    size: "mini"
-  }, "Quick Search"), " or come back later :)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You can also get help from ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://github.com/unbug/codelf/issues",
-    target: "_blank",
-    rel: "noopener noreferrer"
-  }, "https://github.com/unbug/codelf/issues"), "."));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u63A5\u53E3\u8BF7\u6C42\u9519\u8BEF(\u53EF\u80FD\u662F\u7FFB\u8BD1\u9891\u7387\u9650\u5236 \u6216 searchcode.com\u8BF7\u6C42\u4E0D\u901A)"));
 }
 
 /***/ }),
@@ -68072,6 +68036,9 @@ function VariableItem(props) {
   }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     compact: true,
     as: "a",
+    onClick: function onClick() {
+      return window.onCopyUtools(variable.repoLink);
+    },
     href: variable.repoLink,
     target: "_blank"
   }, "Repo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -69843,8 +69810,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Baidu 翻译 API 申请参看： https://api.fanyi.baidu.com/api/trans/product/apidoc
  */
 
-var translateAppId = '20191206000363640';
-var translateKey = '4hJrdEmxB3M42OYwhAPA';
+var translateAppId = '20210731000902834';
+var translateKey = '_pO3JksawcoRQ7VJ6KAo';
 var translateSalt = Date.now();
 var translateEndpoint = "https://fanyi-api.baidu.com/api/trans/vip/translate?callback=?&from=auto&to=en&appid=".concat(translateAppId, "&salt=").concat(translateSalt); // https://fanyi-api.baidu.com/api/trans/vip/translate?callback=baiduFanyiRequestCallback&from=auto&to=en&appid=20191206000363640&salt=1575646376369&q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&sign=4e7d639cd17477acf5b13bd5ba6bab76
 
