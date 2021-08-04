@@ -142,8 +142,8 @@ export default function MainContainer(props) {
     }
     setState({ searchValue: val, variableRequesting: true });
     SearchCodeModel.requestVariable(val, page, lang || state.searchLang);
-    AppModel.analytics('q=' + val);
-    DDMSModel.postKeyWords(val);
+    // AppModel.analytics('q=' + val);
+    // DDMSModel.postKeyWords(val);
     updateDocTitle(val);
   }
 

@@ -13,7 +13,7 @@ import AppModel from '../AppModel';
 const translateAppId = '20210731000902834';
 const translateKey = '_pO3JksawcoRQ7VJ6KAo';
 const translateSalt = Date.now();
-const translateEndpoint = `https://fanyi-api.baidu.com/api/trans/vip/translate?callback=?&from=auto&to=en&appid=${translateAppId}&salt=${translateSalt}`;
+const translateEndpoint = `https://fanyi-api.baidu.com/api/trans/vip/translate?from=auto&to=en&appid=${translateAppId}&salt=${translateSalt}`;
 
 // https://fanyi-api.baidu.com/api/trans/vip/translate?callback=baiduFanyiRequestCallback&from=auto&to=en&appid=20191206000363640&salt=1575646376369&q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&sign=4e7d639cd17477acf5b13bd5ba6bab76
 function genUrl(val) {
@@ -37,7 +37,13 @@ class BaiduTranslateData {
 
     try {
       const url = genUrl(val);
-      let res = await JSONP(url, { callbackName: 'baiduFanyiRequestCallback' });
+      let res = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8'
+        }
+      });
+    res = await res.json();
       if (res && res.trans_result) {
         let translation = res.trans_result.map(key => key.dst);
         let suggestion = formatSuggestionStr(translation.join(' '));

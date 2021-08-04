@@ -72,6 +72,7 @@
     "css-doodle": "^0.7.6",
     "events": "^3.0.0",
     "file-saver": "^2.0.2",
+    "fundebug-javascript": "^2.5.0",
     "lodash": "^4.17.15",
     "mark.js": "^8.11.1",
     "nprogress": "^0.2.0",

@@ -68459,9 +68459,9 @@ function MainContainer(props) {
       searchValue: val,
       variableRequesting: true
     });
-    _models_SearchCodeModel__WEBPACK_IMPORTED_MODULE_4__["default"].requestVariable(val, page, lang || state.searchLang);
-    _models_AppModel__WEBPACK_IMPORTED_MODULE_12__["default"].analytics('q=' + val);
-    _models_DDMSModel__WEBPACK_IMPORTED_MODULE_13__["default"].postKeyWords(val);
+    _models_SearchCodeModel__WEBPACK_IMPORTED_MODULE_4__["default"].requestVariable(val, page, lang || state.searchLang); // AppModel.analytics('q=' + val);
+    // DDMSModel.postKeyWords(val);
+
     updateDocTitle(val);
   }
 
@@ -69037,18 +69037,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_JSONP__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/JSONP */ "./src/utils/JSONP.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69112,95 +69100,81 @@ var DDMSModel = /*#__PURE__*/function (_BaseModel) {
 
   _createClass(DDMSModel, [{
     key: "getLuckyKeyWords",
-    value: function getLuckyKeyWords() {
-      var _this2 = this;
-
-      Object(_utils_JSONP__WEBPACK_IMPORTED_MODULE_5__["default"])("".concat(formAction, "?callback=?&formid=56e58775ade3a8e84dbacadf")).then(function (res) {
-        if (res && res.code == 1) {
-          _this2.update({
-            luckyKeyWords: _utils_Tools__WEBPACK_IMPORTED_MODULE_4__["randomList"](_toConsumableArray(new Set(res.data.reduce(function (cal, cur) {
-              if (cur.data.keyword.length > 1) {
-                cal.push(cur.data.keyword);
-              }
-
-              return cal;
-            }, []))), 6)
-          });
-        }
-      });
+    value: function getLuckyKeyWords() {// JSONP(`${formAction}?callback=?&formid=56e58775ade3a8e84dbacadf`).then(res => {
+      //   if (res && res.code == 1) {
+      //     this.update({
+      //       luckyKeyWords: Tools.randomList([...new Set(res.data.reduce((cal, cur) => {
+      //         if (cur.data.keyword.length > 1) {
+      //           cal.push(cur.data.keyword);
+      //         }
+      //         return cal;
+      //       }, []))], 6)
+      //     });
+      //   }
+      // });
     }
   }, {
     key: "postKeyWords",
-    value: function postKeyWords(val) {
-      if (!(_AppModel__WEBPACK_IMPORTED_MODULE_3__["default"].isGithub || _AppModel__WEBPACK_IMPORTED_MODULE_3__["default"].debug)) {
-        return;
-      }
-
-      if (val && cacheKeyWords.indexOf(val) == -1) {
-        _utils_FormHandler__WEBPACK_IMPORTED_MODULE_1__["default"].asyncSubmit(formAction, {
-          formid: '56e58775ade3a8e84dbacadf',
-          keyword: val
-        });
-
-        this._saveKeyWords(val);
-      }
+    value: function postKeyWords(val) {// if (!(AppModel.isGithub || AppModel.debug)) { return; }
+      // if (val && cacheKeyWords.indexOf(val) == -1) {
+      //   FormHandler.asyncSubmit(formAction, {
+      //     formid: '56e58775ade3a8e84dbacadf',
+      //     keyword: val
+      //   });
+      //   this._saveKeyWords(val);
+      // }
     }
   }, {
     key: "postBookmarkUser",
-    value: function postBookmarkUser(val) {
-      if (val) {
-        _utils_FormHandler__WEBPACK_IMPORTED_MODULE_1__["default"].asyncSubmit(formAction, {
-          formid: '56e587a9ade3a8e84dbacae1',
-          account: val
-        });
-      }
+    value: function postBookmarkUser(val) {// if (val) {
+      //   FormHandler.asyncSubmit(formAction, {
+      //     formid: '56e587a9ade3a8e84dbacae1',
+      //     account: val
+      //   });
+      // }
     }
   }, {
     key: "postBookmarkGroup",
-    value: function postBookmarkGroup(repoid, repourl, groupname, lang, stars) {
-      if (repoid) {
-        _utils_FormHandler__WEBPACK_IMPORTED_MODULE_1__["default"].asyncSubmit(formAction, {
-          formid: '56e587ecade3a8e84dbacae3',
-          repoid: repoid,
-          repourl: repourl,
-          groupname: groupname,
-          lang: lang,
-          stars: stars
-        });
-      }
+    value: function postBookmarkGroup(repoid, repourl, groupname, lang, stars) {// if (repoid) {
+      //   FormHandler.asyncSubmit(formAction, {
+      //     formid: '56e587ecade3a8e84dbacae3',
+      //     repoid: repoid,
+      //     repourl: repourl,
+      //     groupname: groupname,
+      //     lang: lang,
+      //     stars: stars
+      //   });
+      // }
     }
   }, {
     key: "postBookmarkOrganizer",
-    value: function postBookmarkOrganizer(data, callback) {
-      if (data) {
-        window.afterPostBookmarkOrganizer = callback;
-        _utils_FormHandler__WEBPACK_IMPORTED_MODULE_1__["default"].asyncSubmit(formAction, {
-          formid: '56fb7d9dade3a8e84dbacaf0',
-          success_url: _utils_Tools__WEBPACK_IMPORTED_MODULE_4__["thisPath"] + 'ddms_frame_callback.html?frame_callback=afterPostBookmarkOrganizer',
-          data: data
-        });
-      }
+    value: function postBookmarkOrganizer(data, callback) {// if (data) {
+      //   window.afterPostBookmarkOrganizer = callback;
+      //   FormHandler.asyncSubmit(formAction, {
+      //     formid: '56fb7d9dade3a8e84dbacaf0',
+      //     success_url: Tools.thisPath + 'ddms_frame_callback.html?frame_callback=afterPostBookmarkOrganizer',
+      //     data: data
+      //   });
+      // }
     }
   }, {
     key: "postUpdateBookmarkOrganizer",
-    value: function postUpdateBookmarkOrganizer(id, data, callback) {
-      if (id && data) {
-        window.afterPostUpdateBookmarkOrganizer = callback;
-        _utils_FormHandler__WEBPACK_IMPORTED_MODULE_1__["default"].asyncSubmit(formDataAction, {
-          id: id,
-          success_url: _utils_Tools__WEBPACK_IMPORTED_MODULE_4__["thisPath"] + 'ddms_frame_callback.html?frame_callback=afterPostUpdateBookmarkOrganizer',
-          data: data
-        });
-      }
+    value: function postUpdateBookmarkOrganizer(id, data, callback) {// if (id && data) {
+      //   window.afterPostUpdateBookmarkOrganizer = callback;
+      //   FormHandler.asyncSubmit(formDataAction, {
+      //     id: id,
+      //     success_url: Tools.thisPath + 'ddms_frame_callback.html?frame_callback=afterPostUpdateBookmarkOrganizer',
+      //     data: data
+      //   });
+      // }
     }
   }, {
     key: "getBookmarkOrganizer",
-    value: function getBookmarkOrganizer(id, callback) {
-      Object(_utils_JSONP__WEBPACK_IMPORTED_MODULE_5__["default"])("".concat(formDataAction, "?callback=?&id=").concat(id)).then(function (data) {
-        if (data) {
-          callback && callback(data);
-        }
-      });
+    value: function getBookmarkOrganizer(id, callback) {// JSONP(`${formDataAction}?callback=?&id=${id}`).then(data => {
+      //   if (data) {
+      //     callback && callback(data);
+      //   }
+      // });
     }
   }, {
     key: "_saveKeyWords",
@@ -69328,7 +69302,7 @@ var SearchCodeModel = /*#__PURE__*/function (_BaseModel) {
       persistence: 'session',
       persistenceKey: _AppModel__WEBPACK_IMPORTED_MODULE_7__["default"].genPersistenceKey('variable_list_key')
     });
-    var translators = [_metadata_YoudaoTranslateData__WEBPACK_IMPORTED_MODULE_2__["default"], _metadata_YoudaoTranslateData__WEBPACK_IMPORTED_MODULE_2__["default"], _metadata_YoudaoTranslateData__WEBPACK_IMPORTED_MODULE_2__["default"], _metadata_BaiduTranslateData__WEBPACK_IMPORTED_MODULE_3__["default"], _metadata_BingTranslateData__WEBPACK_IMPORTED_MODULE_4__["default"]];
+    var translators = [_metadata_BaiduTranslateData__WEBPACK_IMPORTED_MODULE_3__["default"], _metadata_BingTranslateData__WEBPACK_IMPORTED_MODULE_4__["default"]];
     _this._translator = translators[new Date().getSeconds() % translators.length];
     return _this;
   } //search code by query
@@ -69813,7 +69787,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var translateAppId = '20210731000902834';
 var translateKey = '_pO3JksawcoRQ7VJ6KAo';
 var translateSalt = Date.now();
-var translateEndpoint = "https://fanyi-api.baidu.com/api/trans/vip/translate?callback=?&from=auto&to=en&appid=".concat(translateAppId, "&salt=").concat(translateSalt); // https://fanyi-api.baidu.com/api/trans/vip/translate?callback=baiduFanyiRequestCallback&from=auto&to=en&appid=20191206000363640&salt=1575646376369&q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&sign=4e7d639cd17477acf5b13bd5ba6bab76
+var translateEndpoint = "https://fanyi-api.baidu.com/api/trans/vip/translate?from=auto&to=en&appid=".concat(translateAppId, "&salt=").concat(translateSalt); // https://fanyi-api.baidu.com/api/trans/vip/translate?callback=baiduFanyiRequestCallback&from=auto&to=en&appid=20191206000363640&salt=1575646376369&q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&sign=4e7d639cd17477acf5b13bd5ba6bab76
 
 function genUrl(val) {
   var sign = _utils_Tools__WEBPACK_IMPORTED_MODULE_1__["MD5"]("".concat(translateAppId).concat(val).concat(translateSalt).concat(translateKey)); // appid+q+salt+密钥 的MD5值
@@ -69853,15 +69827,23 @@ var BaiduTranslateData = /*#__PURE__*/function () {
                 _context.prev = 3;
                 url = genUrl(val);
                 _context.next = 7;
-                return Object(_utils_JSONP__WEBPACK_IMPORTED_MODULE_2__["default"])(url, {
-                  callbackName: 'baiduFanyiRequestCallback'
+                return fetch(url, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json; charset=UTF-8'
+                  }
                 });
 
               case 7:
                 res = _context.sent;
+                _context.next = 10;
+                return res.json();
+
+              case 10:
+                res = _context.sent;
 
                 if (!(res && res.trans_result)) {
-                  _context.next = 17;
+                  _context.next = 20;
                   break;
                 }
 
@@ -69879,24 +69861,24 @@ var BaiduTranslateData = /*#__PURE__*/function () {
 
                 return _context.abrupt("return", response);
 
-              case 17:
+              case 20:
                 throw new Error("Request Baidu translate failed");
 
-              case 18:
-                _context.next = 23;
+              case 21:
+                _context.next = 26;
                 break;
 
-              case 20:
-                _context.prev = 20;
+              case 23:
+                _context.prev = 23;
                 _context.t0 = _context["catch"](3);
                 return _context.abrupt("return", null);
 
-              case 23:
+              case 26:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[3, 20]]);
+        }, _callee, this, [[3, 23]]);
       }));
 
       function request(_x) {
